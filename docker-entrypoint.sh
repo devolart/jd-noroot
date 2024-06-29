@@ -133,8 +133,13 @@ fi
 log "Start JDownloader"
 
 # Create logs dir if needed
-if [ ! -d "/jdownloader/logs/" ]; then
-    mkdir -p "/jdownloader/logs/"
+if [ ! -d "./jdownloader/logs/" ]; then
+    mkdir -p "./jdownloader/logs/"
+fi
+
+# Set the log file in this file instead of dockerfile
+if [ -z "$LOG_FILE" ]; then
+    LOG_FILE="/dev/null"
 fi
 
 # Start JDownloader in a background process
